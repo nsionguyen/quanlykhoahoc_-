@@ -24,6 +24,12 @@ public class KhoaHoc {
         this.id.set(id);
         this.tenKhoaHoc.set(tenKhoaHoc);
     }
+    
+     public KhoaHoc(int id, String tenKhoaHoc, LocalDate ngayKetThuc){
+        this.id.set(id);
+        this.tenKhoaHoc.set(tenKhoaHoc);
+        this.ngayKetThuc = ngayKetThuc;
+    }
 
     // Constructor cho sinh viên (không cần giangVienId)
     public KhoaHoc(int id, String tenKhoaHoc, String moTa, double gia, int soLuongHocVienToiDa, String tenGiangVien,

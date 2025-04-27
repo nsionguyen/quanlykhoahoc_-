@@ -394,6 +394,27 @@ public class CourseService {
                 }
         return khoaHocList;
     }
+      
+      
+      public KhoaHoc getNgayKetThucCourseID(int khoaHocID) throws SQLException {
+       
+        Connection conn = Database.getConn();
+        String sql = "SELECT * FROM khoahoc WHERE id = ?";
+        PreparedStatement stm = conn.prepareStatement(sql);
+        stm.setInt(1, khoaHocID);
+        ResultSet rs = stm.executeQuery();
+        if (rs.next()) {
+                    KhoaHoc c = new KhoaHoc(
+                            rs.getInt("id"),
+                            rs.getString("ten_khoa_hoc"),
+                            rs.getDate("ngay_bat_dau").toLocalDate()
+                            
+                           
+                    );
+                    return c;
+                }
+        return null;
+    }
     
     public List<KhoaHoc_HocVien> getKhoaHoc_HocViens(int hocVienid, int khoaHocID) throws SQLException {
         List<KhoaHoc_HocVien> kh = new ArrayList<>();

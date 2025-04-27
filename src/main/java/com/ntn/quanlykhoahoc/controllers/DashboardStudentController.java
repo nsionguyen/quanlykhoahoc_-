@@ -1100,6 +1100,8 @@ public class DashboardStudentController {
     public void capChungChi() throws SQLException{
         int baiTapDaLam = 0;
         int diemTrungBinh =0;
+        LocalDate ngayHienTai = LocalDate.now();
+
         CertificateServices certificateServices = new CertificateServices();
         
         CourseService courseService1 = new CourseService();
@@ -1119,7 +1121,7 @@ public class DashboardStudentController {
          double c = (baiTapDaLam / tatCaBT) * 100;
         int phanTramTienTrinh = (int) c;
         diemTrungBinh = diemTrungBinh / exerciseServices.getBaiTapsTheoKhoaHocID(hv_bt.getKhoaHocID()).size();
-        if (phanTramTienTrinh > 80 && diemTrungBinh > 70)
+        if (phanTramTienTrinh > 80 && diemTrungBinh > 70 && ngayHienTai.isAfter(courseService1.getNgayKetThucCourseID(hv_bt.getKhoaHocID()).getNgayKetThuc()))
         certificateServices.submitSQL(hv_bt.getHocVienID(), hv_bt.getKhoaHocID());
         }
         
