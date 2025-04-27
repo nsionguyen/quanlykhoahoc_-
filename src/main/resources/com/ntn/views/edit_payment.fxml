@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ntn.quanlykhoahoc.controllers.EditPaymentController" spacing="10" alignment="CENTER" prefWidth="400">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    <Label text="Sửa Thanh Toán" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+    <GridPane hgap="10" vgap="10">
+        <Label text="ID Thanh Toán:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="paymentIdTextField" promptText="ID Thanh Toán" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="ID Học Viên:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="hocVienIDField" promptText="Nhập ID Học Viên" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="ID Khóa Học:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="khoaHocIDField" promptText="Nhập ID Khóa Học" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Ngày Thanh Toán:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="paymentDatePicker" promptText="Chọn ngày thanh toán" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Số Tiền:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="amountTextField" promptText="Nhập số tiền" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+        <Label text="Phương Thức:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="methodComboBox" GridPane.rowIndex="5" GridPane.columnIndex="1" prefWidth="150"/>
+    </GridPane>
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Lưu" onAction="#handleSave"/>
+        <Button text="Hủy" onAction="#handleCancel"/>
+    </HBox>
+</VBox>
